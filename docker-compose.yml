@@ -2,7 +2,7 @@ services:
   frontend:
     env_file: ".env"
     image: node:latest
-    container_name: conduit-frontend
+    build: ./conduit-frontend
     ports:
       - "8282:80"
     restart: on-failure
@@ -10,7 +10,7 @@ services:
   backend:
     env_file: ".env"
     image: python:latest
-    container_name: conduit-backend
+    build: ./conduit-backend
     volumes:
       - conduit-db:/app/db_data
     ports:
